@@ -2,7 +2,7 @@ from flask import *
 import mysql.connector as msql
 from mysql.connector import Error
 from flask_session import Session
-import os
+
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'super secret key'
@@ -56,9 +56,9 @@ def login():
             session['loggedin'] = True
             session['username'] = account[3]
             session['password'] = account[4]
-            
+            msg='login sucessfully'
             # Redirect to home page
-            return render_template('main.html')
+            return render_template('main.html',msg=msg)
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
