@@ -56,7 +56,7 @@ def login():
             session['loggedin'] = True
             session['username'] = account[3]
             session['password'] = account[4]
-            msg='login sucessfully'
+            msg='login sucessfull'
             # Redirect to home page
             return render_template('main.html',msg=msg)
         else:
